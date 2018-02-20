@@ -1,9 +1,3 @@
-@font-face {
-    font-family: 'zapfino'
-    src: 
-        url('Zapfino.ttf') 
-}
-
 body {
     background-color: lightblue;
 }

@@ -77,7 +77,7 @@ function ballReset(){
         ballY = 300;
         ballSpeedX = 5; // 13. Resets the speed of the ball
         ballSpeedY = 5;
-        speed = 6;
+        paddleSpeed = 4.6;
     }
 }
 
