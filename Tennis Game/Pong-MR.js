@@ -1,3 +1,4 @@
+//Variables for the canvas
 var canvas;
 var canvasContext;
 

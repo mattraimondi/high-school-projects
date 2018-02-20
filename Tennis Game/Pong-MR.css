@@ -1,10 +1,21 @@
+@font-face {
+    font-family: 'zapfino'
+    src: 
+        url('Zapfino.ttf') 
+}
+
 body {
     background-color: lightblue;
 }
-
 h1 {
     color: #FF7D33;
     text-align: center;
+    font-family: impact;
+}
+p {
+    color: #FF7D33;
+    text-align: center;
+    font-family: geneva;
 }
 canvas {
     padding-left: 0;
