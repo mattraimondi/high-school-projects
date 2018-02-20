@@ -195,11 +195,6 @@ canvasContext.font = '12pt Verdana';
 canvasContext.fillStyle = 'White';
 canvasContext.fillText('Matthew Raimondi', canvas.width - 170, canvas.height - 15);
 
-//Writes 'Xaverian Tennis Game' on the screen
-canvasContext.font = '9pt Zapfino';
-canvasContext.fillStyle = 'Gold';
-canvasContext.fillText('Xaverian Tennis Game', 316 ,canvas.height/4 + 6);
-
 //Writes scores on the screen
 canvasContext.font = 'bold 9pt Verdana';
 canvasContext.fillStyle = 'White';
