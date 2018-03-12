@@ -140,12 +140,12 @@ ballSpeedY = ballSpeedY/-1; //19. The ball switches direction up
 //8. Win Screen
 function drawWinScreen(){
     if (showingWinScreen) {
-        canvasContext.font = '20pt Zapfino';
+        canvasContext.font = '20pt Verdana';
         canvasContext.fillStyle = 'Black';
         if (player1Score >= WINNING_SCORE) {
-            canvasContext.fillText('You Win!', canvas.width/2.5, canvas.height/2);
+            canvasContext.fillText('You Win!', canvas.width/3, canvas.height/2);
         }else if (player2Score >= WINNING_SCORE) {
-            canvasContext.fillText('You Lose', canvas.width/2.5, canvas.height/2);
+            canvasContext.fillText('You Lose', canvas.width/3, canvas.height/2);
             
         }
     }

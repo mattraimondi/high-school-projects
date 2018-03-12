@@ -28,13 +28,7 @@ canvasContext.fillStyle = '#FF7D33'; //Orange
 canvasContext.fillRect(200,80,100,canvas.height);
     canvasContext.fillStyle = 'grey';
 canvasContext.fillRect(300,200,100,canvas.height);
-    //Makes title
-    canvasContext.font = '20pt Zapfino';
-canvasContext.fillStyle = 'White';
-canvasContext.fillText('The City', 20, 55);
-    canvasContext.font = '12pt Verdana';
-canvasContext.fillStyle = 'White';
-canvasContext.fillText('by Matthew Raimondi', 200, 55);
+    
     //Draws Trees
     canvasContext.fillStyle = 'brown';
 canvasContext.fillRect(500,540,20,canvas.height);

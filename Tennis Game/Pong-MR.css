@@ -1,15 +1,17 @@
+@import url("fonts/stylesheet.css");
+
 body {
     background-color: lightblue;
 }
 h1 {
     color: #FF7D33;
     text-align: center;
-    font-family: impact;
+    font-family: aladinregular;
 }
 p {
     color: #FF7D33;
     text-align: center;
-    font-family: geneva;
+    font-family: aladinregular;
 }
 canvas {
     padding-left: 0;
