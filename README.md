@@ -1,3 +1,3 @@
 # Laughing Winner
-Some of my favorite projects from Intro to Computer Programming.</br>
-To view the HTML files as webpages, paste the url http://htmlpreview.github.io/? before the url of the HTML file.</br>
+Some of my favorite projects from Intro to Computer Programming and from Web Design.</br>
+HTML files are viewable from http://mattraimondi.com under the "Web Projects" section.
