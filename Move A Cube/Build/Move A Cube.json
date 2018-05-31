@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Move a Cube",
+"dataUrl": "Move A Cube.data.unityweb",
+"asmCodeUrl": "Move A Cube.asm.code.unityweb",
+"asmMemoryUrl": "Move A Cube.asm.memory.unityweb",
+"asmFrameworkUrl": "Move A Cube.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
