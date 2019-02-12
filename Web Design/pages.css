@@ -1,6 +1,11 @@
 /* Matthew Raimondi - Page CSS - 12 February 2019 */
 
 html {
-    background: lightblue;
+    background: white;
     font-family: sf_pro_displayregular;
+}
+
+h1 {
+    font-size: 20px;
+    color: red;
 }
