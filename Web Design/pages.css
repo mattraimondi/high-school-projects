@@ -4,18 +4,52 @@ html {
     background: aliceblue;
     font-family: sf_pro_displayregular;
 }
-
 body {
     margin-left: 50px;
     margin-right: 50px;
 }
-
 h1 {
-    font-size: 40px;
     color: green;
+    border-style: double;
+    border-width: 5px;
+    border-color: coral;
+    border-radius: 4px;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    text-align: center;
 }
-
 p {
     font-size: 18px;
     color: lightslategray;
+}
+img {
+    border: 10px solid white;
+    border-radius: 30px;
+}
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+  background-color: red;
+  padding: 14px 25px;
+  text-align: center;
+  display: inline-block;
+}
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+  background-color: red;
+}
+/* mouse over link */
+a:hover {
+  color: hotpink;
+  text-decoration: underline;
+  background-color: yellow;
+}
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: underline;
+  background-color: yellow;
 }
