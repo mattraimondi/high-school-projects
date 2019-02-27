@@ -31,25 +31,26 @@ a:link {
   color: white;
   text-decoration: none;
   background-color: red;
-  padding: 14px 25px;
+  padding: 14px 100px;
   text-align: center;
   display: inline-block;
+  transition: 0.3s;
 }
 /* visited link */
 a:visited {
   color: white;
   text-decoration: none;
-  background-color: red;
+  background-color: pink;
 }
 /* mouse over link */
 a:hover {
-  color: hotpink;
-  text-decoration: underline;
-  background-color: yellow;
+  color: red;
+  text-decoration: none;
+  background-color: white;
 }
 /* selected link */
 a:active {
-  color: blue;
-  text-decoration: underline;
-  background-color: yellow;
+  color: pink;
+  text-decoration: none;
+  background-color: white;
 }
