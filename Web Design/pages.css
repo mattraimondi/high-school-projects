@@ -31,8 +31,9 @@ a:link {
   color: white;
   text-decoration: none;
   background-color: red;
-  padding: 14px 100px;
   text-align: center;
+  width: 150px;
+  padding: 14px 0px;
   display: inline-block;
   transition: 0.3s;
 }

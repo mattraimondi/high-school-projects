@@ -1,0 +1,26 @@
+html, body {
+		background-color: skyblue;
+		font-family: sf_pro_displayregular;
+}
+img {
+		border-radius: 4px;
+}
+a:link {
+		color: deepskyblue;
+		text-decoration: none;
+		background-color: white;
+		width: 197px;
+		border-radius: 4px;
+		padding: 14px 0px;
+		display: inline-block;
+		transition: 0.3s;
+}
+a:visited {
+		color: darkred;
+}
+a:hover {
+		color: green;
+}
+a:active {
+		color: purple;
+}
