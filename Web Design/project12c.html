@@ -1,0 +1,42 @@
+<! Matthew Raimondi - Project 12c - 20 March 2019>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       	<title>CSS Animations - Matthew Raimondi</title>
+		<link rel="stylesheet" href="https://mattraimondi.com/style.css">
+		<style>
+			html {
+				background-color: darkred;
+			}
+			h1 {
+				font-family: dosisregular;
+				position: relative;
+				font-size: 40px;
+				animation-name: moveL-R;
+				animation-duration: 4s;
+				color: tan;
+			}
+			@keyframes moveL-R {
+				0% {
+					opacity: 0;
+				}
+                25% {
+					opacity: 0.25;
+				}
+				50% {
+					opacity: 0.5;
+				}
+                75% {
+					opacity: 0.75;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+        </style>
+	</head>
+    <body class="noback">
+		<h1>Matthew Raimondi</h1>
+    </body>
+</html>
