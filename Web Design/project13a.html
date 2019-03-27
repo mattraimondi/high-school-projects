@@ -1,0 +1,36 @@
+<! Matthew Raimondi - Project 13a - 25 March 2019>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       	<title>Using Animate.css - Matthew Raimondi</title>
+		<link rel="stylesheet" href="https://mattraimondi.com/style.css">
+        <link rel="stylesheet" href="https://mattraimondi.com/ajax/libs/css/animate.css">
+        <style>
+            html {
+                background-color: lightgrey;
+            }
+            h1 {
+                font-family: quicksandregular;
+                font-size: 40px;
+                padding-top: 20%;
+                text-align: center;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+                animation: bounce 1s 3 2s, changeHue 15s infinite linear;
+            }
+            @-webkit-keyframes changeHue {
+                from {
+                    filter: hue-rotate(0deg);
+                }
+                to {
+                    filter: hue-rotate(-360deg);
+                }
+            }
+        </style>
+	</head>
+    <body class="noback">
+        <h1>Matthew Raimondi</h1>
+    </body>
+</html>
