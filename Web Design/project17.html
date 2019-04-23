@@ -1,0 +1,73 @@
+<! Matthew Raimondi - Project 17 - 23 April 2019>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       	<title>JavaScript - Matthew Raimondi</title>
+		<link rel="stylesheet" href="https://mattraimondi.com/style.css">
+        <style>
+            html, body {
+                height: 95%;
+            }
+            h1, p, input {
+                font-family: ubunturegular;
+            }
+            input {
+                font-size: 40px;
+                text-align: center;
+            }
+        </style>
+	</head>
+    <body class="gradientback4">
+        <table align="center" height="100%">
+            <tr align="center">
+                <td valign="center">
+                    <h1>Fahrenheit Value</h1>
+                    <input type="text" id="IF" value="" placeholder="Fahrenheit Value">
+                </td>
+            </tr>
+            <tr align="center">
+                <td valign="center">
+                    <h1>Celcius Value</h1>
+                    <input type="text" id="IC" value="" placeholder="Celcius Value">
+                </td>
+            </tr>
+            <tr align="center">
+                <td valign="bottom">
+                    <p>Fahrenheit and Celcius conversion program written by <a href="https://mattraimondi.com">Matthew Raimondi</a><br>Copyright &copy; 2019 Matthew Raimondi | All Rights Reserved</p>
+                </td>
+           </tr>
+        </table>
+    </body>
+    <script>
+        function convertFC() {
+            document.getElementById("IC").value = String((Number(document.getElementById("IF").value) - 32) / 1.8);
+        }
+        
+        function convertCF() {
+            document.getElementById("IF").value = String((Number(document.getElementById("IC").value) * 1.8) + 32);
+        }
+
+        document.getElementById("IF").addEventListener("keyup", function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                if (document.getElementById("IF").value.length == 0) {
+                    document.getElementById("IC").value = "";
+                } else {
+                    convertFC();
+                }
+            }
+        });
+        
+        document.getElementById("IC").addEventListener("keyup", function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                if (document.getElementById("IC").value.length == 0) {
+                    document.getElementById("IF").value = "";
+                } else {
+                    convertCF();
+                }
+            }
+        });
+    </script>
+</html>
