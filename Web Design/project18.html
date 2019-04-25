@@ -1,0 +1,58 @@
+<! Matthew Raimondi - Project 18 - 25 April 2019>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       	<title>JavaScript 2 - Matthew Raimondi</title>
+		<link rel="stylesheet" href="https://mattraimondi.com/style.css">
+        <style>
+            html, body {
+                height: 95%;
+            }
+            h1, p, input {
+                font-family: ubunturegular;
+            }
+            h1, p, a {
+                color: white;
+            }
+            input {
+                font-size: 40px;
+                text-align: center;
+            }
+        </style>
+	</head>
+    <body class="gradientback5">
+        <table align="center" height="100%">
+            <tr align="center">
+                <td valign="center">
+                    <h1>Input</h1>
+                    <p>Input a list of numbers to receive the largest number.</p>
+                    <input type="text" onkeyup="sortNum()" id="input" value="" placeholder="numbers only">
+                </td>
+            </tr>
+            <tr align="center">
+                <td valign="center">
+                    <h1>Largest Number</h1>
+                    <input type="text" id="output" value="" placeholder="output" readonly>
+                </td>
+            </tr>
+            <tr align="center">
+                <td valign="bottom">
+                    <p>Number Order program written by <a href="https://mattraimondi.com">Matthew Raimondi</a><br>Copyright &copy; 2019 Matthew Raimondi | All Rights Reserved</p>
+                </td>
+           </tr>
+        </table>
+    </body>
+    <script>
+        var numArr = [];
+        var sortedArr = [];
+        var largestNumber = 0;
+        
+        function sortNum() {
+            numArr = document.getElementById("input").value.split(" ");
+            sortedArr = numArr.sort(function(a, b){return a - b});
+            largestNumber = sortedArr[sortedArr.length - 1];
+            document.getElementById("output").value = largestNumber;
+        }
+    </script>
+</html>
