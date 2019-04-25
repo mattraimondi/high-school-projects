@@ -23,13 +23,13 @@
             <tr align="center">
                 <td valign="center">
                     <h1>Fahrenheit Value</h1>
-                    <input type="text" id="IF" value="" placeholder="Fahrenheit Value">
+                    <input type="text" id="IF" value="" onkeyup="convertFC()" placeholder="Fahrenheit Value">
                 </td>
             </tr>
             <tr align="center">
                 <td valign="center">
                     <h1>Celcius Value</h1>
-                    <input type="text" id="IC" value="" placeholder="Celcius Value">
+                    <input type="text" id="IC" value="" onkeyup="convertCF()" placeholder="Celcius Value">
                 </td>
             </tr>
             <tr align="center">
@@ -41,33 +41,19 @@
     </body>
     <script>
         function convertFC() {
-            document.getElementById("IC").value = String((Number(document.getElementById("IF").value) - 32) / 1.8);
+            if (document.getElementById("IF").value.length == 0) {
+                    document.getElementById("IC").value = "";
+                } else {
+                    document.getElementById("IC").value = String((Number(document.getElementById("IF").value) - 32) / 1.8);
+                }
         }
         
         function convertCF() {
-            document.getElementById("IF").value = String((Number(document.getElementById("IC").value) * 1.8) + 32);
-        }
-
-        document.getElementById("IF").addEventListener("keyup", function(event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
-                if (document.getElementById("IF").value.length == 0) {
-                    document.getElementById("IC").value = "";
-                } else {
-                    convertFC();
-                }
-            }
-        });
-        
-        document.getElementById("IC").addEventListener("keyup", function(event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
-                if (document.getElementById("IC").value.length == 0) {
+            if (document.getElementById("IC").value.length == 0) {
                     document.getElementById("IF").value = "";
                 } else {
-                    convertCF();
+                    document.getElementById("IF").value = String((Number(document.getElementById("IC").value) * 1.8) + 32);
                 }
-            }
-        });
+        }
     </script>
 </html>
