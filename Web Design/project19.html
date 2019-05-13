@@ -1,0 +1,65 @@
+<! Matthew Raimondi - Project 19 - 7 May 2019>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       	<title>JavaScript 3 - Matthew Raimondi</title>
+	</head>
+    <body>
+        
+    </body>
+    <script>
+        var name = prompt("What is your name?");
+        var lossCount = 0;
+        var gameStarted = false;
+        var gameFinished = false;
+        var turns = 4;
+        var mysteryNumber;
+        var playAgain;
+        var guess;
+        
+        game:
+            while (turns > -1) {
+                if (lossCount < 3 && !gameStarted) {
+                    alert("Directions:\n\nYou have 4 turns to guess a number that is (pseudo)randomly generated, from 1 to 10.\nYou are allowed to lose 3 times.");
+                    mysteryNumber = Math.random(); mysteryNumber = parseInt(mysteryNumber * 10 + 1);
+                    turns = 4;
+                    alert(`Ready, ${name}? You have ${turns} turns left.\n\nThe mystery number number is ${mysteryNumber}`);
+                    gameStarted = true;
+                } else if (!gameStarted) {
+                    alert(`Sorry, ${name}! You have reached the quota of 3 losses!`);
+                    break;
+                }
+
+                guess = prompt("Please guess a number from 1 to 10.")
+                if (guess > mysteryNumber) {
+                    turns--;
+                    alert(`Too High, ${name}!\nYou have ${turns} turns left.`);
+                } else if (guess < mysteryNumber) {
+                    turns--;
+                    alert(`Too Low, ${name}!\nYou have ${turns} turns left.`);
+                }
+
+                if (guess == mysteryNumber) {
+                    alert(`Congratulations, ${name}, You Won!\nThe number is ${mysteryNumber}.`);
+                    gameFinished = true;
+                } else if (guess != mysteryNumber && turns == 0) {
+                    alert(`Unfortunately, ${name}, You Lost.\nThe number is ${mysteryNumber}.`);
+                    gameFinished = true;
+                    lossCount++;
+                }
+                
+                if (gameFinished) {
+                    playAgain = confirm("Would you like to play again?");
+                    if (playAgain) {
+                        gameStarted = false;
+                        gameFinished = false;
+                        continue game;
+                    } else if (!playAgain) {
+                        break;
+                    }
+                }
+            }
+        
+    </script>
+</html>

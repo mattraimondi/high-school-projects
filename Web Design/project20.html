@@ -1,0 +1,132 @@
+<! Matthew Raimondi - Project 20 - 7 May 2019>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       	<title>JavaScript 3 - Matthew Raimondi</title>
+		<link rel="stylesheet" href="https://mattraimondi.com/style.css">
+        <style>
+            html, body {
+                height: 95%;
+            }
+            h1, p, input {
+                font-family: ubunturegular;
+            }
+            h1, p, a {
+                color: white;
+            }
+            input {
+                font-size: 30px;
+                text-align: center;
+            }
+			#b5 {
+				margin-top: 5px;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 18px;
+				padding: 10px 20px 10px 20px;
+				font-family: ubunturegular;
+				-webkit-border-radius: 28;
+				-moz-border-radius: 28;
+				border-radius: 28px;
+				color: #ffffff;
+				background: #00bfff;
+			}
+        </style>
+	</head>
+    <body class="gradientback6">
+        <table align="center" height="100%">
+            <tr align="center">
+                <td valign="center">
+                    <p id="out" style="font-size: 30px;"></p>
+                    <input type="number" id="input" value="" placeholder="press new game">
+                </td>
+            </tr>
+            <tr align="center">
+                <td valign="center">
+					<button onclick="newGame()" id="b5">New Game</button>
+					<p>Directions:<br><br>You have 4 turns to guess a number that is (pseudo)randomly generated, from 1 to 10.<br><br>To start, press the "new game" button. To restart, also press the "new game" button.<br>To enter a number, simply type the number into the box and then hit enter.<br><br>You are allowed to lose 3 times per day.</p>
+                    <button onclick="resetName()" id="b5">Reset Name</button>
+                </td>
+            </tr>
+            <tr align="center">
+                <td valign="bottom">
+                    <p>Guess the Number program written by <a href="https://mattraimondi.com">Matthew Raimondi</a><br>Copyright &copy; 2019 Matthew Raimondi | All Rights Reserved</p>
+                </td>
+           </tr>
+        </table>
+    </body>
+    <script src="https://mattraimondi.com/script.js"></script>
+    <script>
+        var name = "";
+        var lossCount;
+        var mysteryNumber;
+        var turns;
+        
+        if (getCookie("name") == "") {
+            name = prompt("What is your name?");
+            setCookie("name", name, 30);
+        } else {
+            name = getCookie("name");
+        }
+        document.getElementById("out").innerHTML = (`Welcome, ${name}!`);
+        
+        if (getCookie("lossCount") == "") {
+            lossCount = 0;
+            setCookie("lossCount", lossCount, 1);
+        } else {
+            lossCount = getCookie("lossCount");
+        }
+        
+        function resetName() {
+            name = prompt("What is your name?");
+            setCookie("name", name, 30);
+            location.reload();
+        }
+        
+		function newGame() {
+            if (lossCount < 3) {
+                mysteryNumber = Math.random(); mysteryNumber = parseInt(mysteryNumber * 10 + 1);
+                turns = 4;
+                document.getElementById("out").innerHTML = (`Ready, ${name}? You have ${turns} turns left.`);
+                document.getElementById("input").placeholder = "# from 1 - 10";
+            } else {
+                document.getElementById("out").innerHTML = (`Sorry, ${name}! You have reached the quota of 3 losses per day.<br>Come again tomorrow!`);
+            }
+        }
+        
+        function checkInput(guess) {
+            if (turns > 0) {
+                if (guess > mysteryNumber) {
+                    turns--;
+                    document.getElementById("out").innerHTML = (`Too High, ${name}! You have ${turns} turns left.`);
+                } else {
+                    turns--;
+                    document.getElementById("out").innerHTML = (`Too Low, ${name}! You have ${turns} turns left.`);
+                }
+            }
+        }
+        
+        function checkWinLose(guess) {
+            if (guess == mysteryNumber) {
+                turns = null;
+				document.getElementById("out").innerHTML = (`Congratulations, ${name}, You Won!<br>The number is ${mysteryNumber}.`);
+                document.getElementById("input").placeholder = "press new game";
+			} else if (guess != mysteryNumber && turns == 0) {
+				document.getElementById("out").innerHTML = (`Unfortunately, ${name}, You Lost.<br>The number is ${mysteryNumber}.`);
+                document.getElementById("input").placeholder = "press new game";
+                lossCount++;
+                setCookie("lossCount", lossCount, 1);
+			}
+        }
+        
+        document.getElementById("input").addEventListener("keyup", function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                checkInput(parseInt(document.getElementById("input").value));
+                checkWinLose(parseInt(document.getElementById("input").value));
+                document.getElementById("input").value = "";
+            }
+        });
+    </script>
+</html>
