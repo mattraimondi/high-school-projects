@@ -1,3 +1,6 @@
+# 15 September 2020
+# Exploring the Python Turtle library
+
 import turtle
 import time
 from random import randint
@@ -29,9 +32,15 @@ def multipleShapes(sides, sideLength, color):
     for i in range(sides):
         drawShape(sides, sideLength, color)
         t1.right(360/sides)
+        
+# creates a cooler design
+def randomMultipleShapes(color):
+    for i in range(10):
+        sides = randint(3,6)
+        sideLength = randint(50,150)
+        drawShape(sides, sideLength, color)
+        t1.right(360/sides)
 
-#randomNumber = randint(3,6)
-#multipleShapes(randomNumber, 100, "green")
+randomMultipleShapes("purple")
 
-t1.circle(50)
 time.sleep(3)
