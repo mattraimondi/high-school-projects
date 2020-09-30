@@ -1,5 +1,5 @@
-# 15 September 2020
 # Exploring the Python Turtle library
+# 15 September 2020
 
 import turtle
 import time
