@@ -3,23 +3,22 @@
 # 15 September 2020
 
 import turtle
-import time
 from random import randint
 
-# get the screen, set width and height
+# Get the screen, set width and height
 s = turtle.getscreen()
 sWidth = 700
 sHeight = 800
 s.screensize(sWidth, sHeight)
 s.bgcolor("dodgerblue")
 
-# create turtle
+# Create turtle
 t1 = turtle.getturtle()
 t1.shape("turtle")
 t1.width(3)
 t1.speed(0)
 
-# function to draw a shape using the turtle pen feature
+# Function to draw a shape using the turtle pen feature
 def drawShape(sides, sideLength, color):
     t1.pendown()
     t1.color(color)
@@ -28,13 +27,13 @@ def drawShape(sides, sideLength, color):
         t1.left(360/sides)
     t1.penup()
 
-# creates a cool design
+# Creates a cool design
 def multipleShapes(sides, sideLength, color):
     for i in range(sides):
         drawShape(sides, sideLength, color)
         t1.right(360/sides)
         
-# creates a cooler design
+# Creates a cooler design
 def randomMultipleShapes(color):
     for i in range(10):
         sides = randint(3,6)
@@ -43,5 +42,3 @@ def randomMultipleShapes(color):
         t1.right(360/sides)
 
 randomMultipleShapes("purple")
-
-time.sleep(3)
