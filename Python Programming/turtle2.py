@@ -16,6 +16,14 @@ s.bgcolor("deepskyblue")
 t1 = turtle.getturtle()
 t1.hideturtle()
 
+# Function to draw a shape using the turtle pen feature
+def drawShape(sides, sideLength, turtle):
+    turtle.pendown()
+    for i in range(sides):
+        turtle.forward(sideLength)
+        turtle.left(360/sides)
+    turtle.penup()
+
 # Do something function
 def doSomething(x, y):
     for i in range(randint(10, 30)):
@@ -28,6 +36,8 @@ def doSomething(x, y):
         newT.pendown()
         newT.forward(randint(50, 200))
         newT.penup()
+        drawShape(4, randint(20,50), newT)
+        newT.hideturtle()
 
 # Call funtion when click detected
 s.onclick(doSomething)
