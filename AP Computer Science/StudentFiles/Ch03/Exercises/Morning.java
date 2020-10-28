@@ -9,24 +9,35 @@ import javax.swing.Timer;
 
 public class Morning extends JFrame
 {
+  private int time;
   private EasySound rooster;
 
   /**
    *   Constructor
    */
+
   public Morning()
   {
     super("Morning");
-    rooster = new EasySound("roost.wav);
+    rooster = new EasySound("roost.wav");
     rooster.play();
 
     Container c = getContentPane();
-    c.seBackground(Color.WHITE);
+    c.setBackground(Color.WHITE);
+
+//    time = 0;
+//    Timer clock = new Timer(30, this);
+//    clock.start();
+  }
+
+  public void actionPerformed(ActionEvent e)
+  {
+    time++;
   }
 
   public static void main(String[] args)
   {
-    Morning morning = new Morning;
+    Morning morning = new Morning();
     morning.setSize(300, 150);
     morning.setDefaultCloseOperation(EXIT_ON_CLOSE);
     morning.setVisible(true);

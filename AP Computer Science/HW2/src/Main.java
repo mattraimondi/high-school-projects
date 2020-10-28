@@ -1,14 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // print a statement
-        System.out.println("Hi, I am the Main class!");
+        Scanner input = new Scanner(System.in);
 
-        // print out counting down 10 to 1
-        int x = 10;
-        while (x > 0) {
-            System.out.println(x);
-            x--;
-        }
+        System.out.print("Please enter an noun: ");
+        String noun = input.nextLine();
+
+        System.out.print("Please enter an adjective: ");
+        String adjective = input.nextLine();
+
+        System.out.println("Definitely, I think that " + noun + " is very " + adjective + " as well!");
+
     }
 }
-
