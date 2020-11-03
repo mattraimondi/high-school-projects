@@ -10,5 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Balloons-All-Kinds (2)" level="project" />
+    <orderEntry type="library" name="balloondraw" level="project" />
   </component>
 </module>
