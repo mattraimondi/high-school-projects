@@ -2,12 +2,13 @@
 # Exploring the Python Turtle library
 # 2 October 2020
 
+# Import statements
 import turtle
 from random import randint
 
-#this is our list of available base 16 (hex) numbers
-hexList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
-# positions 0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
+# Global variables
+cChoiceList = ["Red", "Green", "Blue", "Any"]
+hexList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'] # This is our list of available base 16 (hex) numbers
 
 # Get the screen, set width and height
 s = turtle.getscreen()
@@ -23,7 +24,6 @@ t1.hideturtle()
 # Function to make a new color
 def makeAColor(whatColor):
     newColor = "#"
-    
     if whatColor == "Red": # Red override
         r = "ff" # Prominent red
         g1 = str(randint(0, 6)) # First green value
@@ -45,8 +45,8 @@ def makeAColor(whatColor):
         r2 = str(randint(0, 9)) # Second red value
         g2 = str(randint(0, 9)) # Second green value
         newColor += (r1 + r2 + g1 + g2 + b)
-    else:
-        for i in range(6): # Create random color
+    elif whatColor == "Any": # Create random color
+        for i in range(6):
             newDigit = hexList[randint(0,len(hexList)-1)]
             newColor += newDigit
 
@@ -65,9 +65,10 @@ def drawShape(sides, sideLength, color, turtle):
 
 # Do something function
 def doSomething(x, y):
+    cChoice = cChoiceList[randint(0, len(cChoiceList) - 1)]
     for i in range(randint(10, 30)):
         newT = turtle.Turtle() # Create a new turtle
-        newColor = makeAColor("Red") # Make a new color
+        newColor = makeAColor(cChoice)
         newT.speed(0) # Set speed so program runs as quickly as possible
         newT.penup()
         newT.goto(x,y) # Go to mouse click position
