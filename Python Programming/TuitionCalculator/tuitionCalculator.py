@@ -5,12 +5,13 @@
 
 # Import Statements
 import sys
+import matplotlib.pyplot as plt
 from datetime import date
 
 
 # Program Data and Information (variable definitions (declaration and initialization))
 numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
-inflationRates = [1.5, 3.0, 1.7, 1.5, 0.8, 0.7, 2.1, 2.1, 1.9, 2.3, 1.4]
+inflationRates = [0.015, 0.03, 0.017, 0.015, 0.008, 0.007, 0.021, 0.021, 0.019, 0.023, 0.014]
 averageInflation = sum(inflationRates) / len(inflationRates)
 helpText = "Welcome to the college tuition calculator. The commands are as follows:\n\tfind - find tuition information about a college\n\tadd - add a new college to the database\n\tcolleges - list the available colleges\n\thelp - print out help to the screen\n\tquit - stop the program\n\nYou may use the quit command from within any part of the program in order to stop the program. When you issue a command, if you change your mind while answering questions, you may type \"back\""
 fileName = "colleges.csv"
@@ -35,7 +36,7 @@ def ask_question(question_to_ask):
 
 def beautify_money(incoming_number):
     money_array = []
-    money_input = str(incoming_number)
+    money_input = str(round(incoming_number, 2))
     holder_array = money_input.split(".")
 
     if isinstance(incoming_number, int):
@@ -104,6 +105,7 @@ def load_college_data(incoming_data):
 
 def print_colleges(dictionary):
     print("We have information on the following colleges:")
+
     for key in dictionary:
         print(key + ": " + beautify_money(dictionary[key]))
 
@@ -118,12 +120,44 @@ def get_tuition(college_dict, what_college):
 
 
 def total_cost(tuition):
-    year1 = tuition
-    year2 = year1 + (year1 * averageInflation)
-    year3 = year2 + (year2 * averageInflation)
-    year4 = year3 + (year3 * averageInflation)
-    total_years = year1 + year2 + year3 + year4
-    return year1, year2, year3, year4, total_years
+    tuition_inc = tuition
+    cost_by_year = []
+
+    for i in range(4):
+        if i != 0:
+            tuition += (tuition * averageInflation)
+            tuition_inc += tuition
+
+        cost_by_year.append(round(tuition, 2))
+
+    cost_by_year.append(round(tuition_inc, 2))
+
+    return cost_by_year
+
+
+def plot_tuition_cost(total, year):
+    x_axis_year = []
+    y_axis_tuition = []
+    y_ticks = []
+
+    for i in range(4):
+        x_axis_year.append(year + i)
+        y_axis_tuition.append(beautify_money(total[i]))
+
+    for i in range(100000):
+        if i % 20000 == 0:
+            y_ticks.append(beautify_money(i))
+
+    plt.figure(figsize=(12, 8))
+    plt.bar(x_axis_year, y_axis_tuition, label="Tuition", color="#0000fa")
+    plt.title(f"College Tuition\nYears: {year}-{year + 4}")
+    plt.ylabel("Tuition in USD")
+    plt.xlabel("Year Tuition (Projected)")
+    plt.xticks(x_axis_year)
+    plt.yticks(y_ticks)
+    plt.grid(True)
+
+    plt.show()
 
 
 def put_away_data(filename, college_data):
@@ -134,9 +168,6 @@ def put_away_data(filename, college_data):
 
 def parse_input(input_stream):
     if "find" in input_stream.lower():
-        # what_name = ask_question("What is your name?")
-        # child_name = ask_question("What is your child's name?")
-
         while True:
             what_year = ask_question("Which year will your child enroll in college?")
             try:
@@ -155,6 +186,12 @@ def parse_input(input_stream):
         try:
             tuition = get_tuition(load_college_data(run_college_file_load(fileName)), what_college)
             print(f"The tuition for {tuition[0]} is {beautify_money(tuition[1])}")
+            total = total_cost(tuition[1])
+            print(f"The total cost for {tuition[0]} is {beautify_money(total[4])}")
+            for i in range(4):
+                print(f"\tYear {i + 1} {start_year + i}-{start_year + (i + 1)}: {beautify_money(total[i])}")
+            # plot_tuition_cost(total, start_year)
+            # ^ not working yet
         except Exception as no_college:
             print(f"{no_college}\nSorry, we do not have information on {what_college}.")
 
@@ -193,6 +230,6 @@ def doer():
 
 
 # Executed Code
-print(helpText)
 print_colleges(load_college_data(run_college_file_load(fileName)))
+print(helpText)
 doer()

@@ -11,3 +11,10 @@ public class LargestIntegerMethod {
         return LargestInteger(x, LargestInteger(z, y));
     }
 }
+
+// XOR in Java
+// a && !b
+// true true false
+// true false true
+// false true true
+// false false false
